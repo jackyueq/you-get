@@ -12,7 +12,7 @@ def iqiyi_download(url, output_dir = '.', merge = True, info_only = False):
     #pid = r1(r'pid\s*:\s*"([^"]+)"', html)
     #ptype = r1(r'ptype\s*:\s*"([^"]+)"', html)
     #info_url = 'http://cache.video.qiyi.com/v/%s/%s/%s/' % (videoId, pid, ptype)
-    videoId = r1(r'''["']videoId["'][:=]["']([^"']+)["']''', html)
+    videoId = r1(r'''data-player-videoid[:=]["']([^"']+)["']''', html)
     assert videoId
     
     info_url = 'http://cache.video.qiyi.com/v/%s' % videoId
